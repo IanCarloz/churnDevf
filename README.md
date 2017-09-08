@@ -6,7 +6,7 @@ Code of a churn system for Dev.f, using Google Spreadsheets and Apps Script.
 
 ## Then.
 - Open the script editor of the Spreadsheet.
-- Paste the codeChun.gs code there
+- Paste the codeChun.gs code there.
 - Edit the emailAddress with the address to notify.
 
 ## Finally.
