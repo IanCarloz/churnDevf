@@ -12,5 +12,6 @@ Code of a churn system for Dev.f made using Google Spreadsheets and Apps Script.
 ## Finally.
 - Run the churn() function :)
 
-## Also.
+
+### Also.
 you can set a trigger if you want...
