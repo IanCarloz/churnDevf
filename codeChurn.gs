@@ -79,7 +79,6 @@ function selectStudents2Notify(all) {
 }
 
 function notify(alumns) {
-
   function createMessage() {
     var text = new Array();
 
