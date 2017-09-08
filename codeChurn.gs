@@ -4,6 +4,7 @@ function churn() {
 
   var nonActive = selectStudents2Notify(jsonStudents);
   notify(nonActive);
+
 }
 
 function createJson() {
@@ -58,7 +59,7 @@ function selectStudents2Notify(all) {
 
   for (var i = 0; i<all.length; i++) {
     if (!all[i].active) {
-      selected.push(all[i].name);
+      selected.push(all[i]);
     }
   }
   return selected;
@@ -67,7 +68,19 @@ function selectStudents2Notify(all) {
 function notify(alumns) {
   var emailAddress = "iancarloz27g@gmail.com";
   var subject = "Churn System";
-  var message = alumns;
 
-  MailApp.sendEmail(emailAddress, subject, message);
+  function createMessage() {
+    var text = "";
+    for (var n = 0; n<alumns.length; n++ ) {
+      text += "<h4 style='text-transform: capitalize; margin-bottom: 0'>"+alumns[n].name +"</h4><div>"+'of '+alumns[n].program+'.'+ "</div>";
+    }
+    return text;
+  }
+
+  MailApp.sendEmail({
+    to: emailAddress,
+    subject: "new Churn",
+    htmlBody: createMessage()
+  });
+//  MailApp.sendEmail(emailAddress, subject, message);
 }
