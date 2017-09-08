@@ -1,20 +1,20 @@
 function churn() {
   var jsonStudents = createJson();
-  checkAsistances(jsonStudents);
+  checkStatus(jsonStudents);
 
   var nonActive = selectStudents2Notify(jsonStudents);
   notify(nonActive);
 }
 
 function createJson() {
-  var students = new Array();
   var sheet = SpreadsheetApp.getActiveSheet();
   var data = sheet.getDataRange().getValues();
-  var totCells = 0;
+
+  var students = new Array();
 
   for (var i = 2; i < data.length; i++) {
-    var asistances = new Array();
     var student = new Object();
+    var asistances = new Array();
 
     student.name = data[i][1];
     student.lastname = data[i][2];
@@ -32,6 +32,7 @@ function createJson() {
 
     student.asistances = asistances;
     student.active = new Boolean(true);
+
     function getChurn() {
       if (data[i][34]) {
         return true
@@ -39,21 +40,16 @@ function createJson() {
         return false;
       }
     }
+
     churn = getChurn();
     student.churn = churn;
-    for (var e = 0; e<data[i].length; e++) {
-    }
-    if (data[i][34]) {
-    } else {
-    }
     students.push(student);
   }
   return students;
 }
 
-function checkAsistances (students) {
-  for (var s = 0; s<students.length; s++) {
-    var day = 0;
+function checkStatus(students) {
+  for (var s = 0; s < students.length; s++) {
     var count = 0;
 
     for (var day = 0; day < students[s].asistances.length; day++) {
@@ -82,7 +78,7 @@ function selectStudents2Notify(all) {
 
 function notify(alumns) {
   var emailAddress = "iancarloz27g@gmail.com";
-  var subject = "Churn System";
+  var subject = "Daily Churn System";
 
   function createMessage() {
     var text = new Array();
