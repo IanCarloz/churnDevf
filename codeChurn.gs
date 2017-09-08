@@ -79,7 +79,6 @@ function selectStudents2Notify(all) {
 }
 
 function notify(alumns) {
-//  var emailAddress = "iancarloz27g@gmail.com";
 
   function createMessage() {
     var text = new Array();
