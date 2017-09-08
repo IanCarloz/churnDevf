@@ -78,7 +78,6 @@ function selectStudents2Notify(all) {
 
 function notify(alumns) {
   var emailAddress = "iancarloz27g@gmail.com";
-  var subject = "Daily Churn System";
 
   function createMessage() {
     var text = new Array();
@@ -91,7 +90,7 @@ function notify(alumns) {
 
   MailApp.sendEmail({
     to: emailAddress,
-    subject: "new Churn",
+    subject: "Daily Churn System",
     htmlBody: createMessage()
   });
 }
