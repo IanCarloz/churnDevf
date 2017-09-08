@@ -15,3 +15,5 @@ Code of a churn system for Dev.f made using Google Spreadsheets and Apps Script.
 
 ### Also.
 you can set a trigger if you want...
+
+*IS IMPORTANT THAT THE PERSON IN CHARGE OF TAKing THE ASSISTANCE FILL ALL THE CELLS WITH AN 0 OR 1 TO ALL THIS STUFF WORKS ;)*
