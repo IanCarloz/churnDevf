@@ -33,7 +33,6 @@ function createJson() {
     student.asistances = asistances;
     student.active = new Boolean(true);
     function getChurn() {
-//      var empty = new Boolean(false);
       if (data[i][34]) {
         return true
       } else {
@@ -42,15 +41,10 @@ function createJson() {
     }
     churn = getChurn();
     student.churn = churn;
-//    Logger.log(data[i][1]);
-//    Logger.log(data[i][34]);
     for (var e = 0; e<data[i].length; e++) {
-//      Logger.log(e+data[i][e]);
     }
     if (data[i][34]) {
-//      Logger.log(data[i][34]+'is true');
     } else {
-//      Logger.log(data[i][34]+'is false');
     }
     students.push(student);
   }
@@ -79,12 +73,10 @@ function selectStudents2Notify(all) {
   var selected = [];
 
   for (var i = 0; i<all.length; i++) {
-//    Logger.log(all[i].number+', '+all[i].name+', '+all[i].churn);
     if (!all[i].active && !all[i].churn) {
       selected.push(all[i]);
     }
   }
-  Logger.log(selected)
   return selected;
 }
 
@@ -96,7 +88,7 @@ function notify(alumns) {
     var text = new Array();
 
     for (var n = 0; n<alumns.length; n++ ) {
-      text += "<h4 style='text-transform: capitalize; margin-bottom: 0'>"+alumns[n].name +"</h4><div>"+'of '+alumns[n].program+'!'+ "</div>";
+      text += "<div style='padding: 0.5cm 3cm;'><h4>"+alumns[n].number+'. <span style="text-transform: capitalize; color: blue;">'+alumns[n].name +"</h4></span>"+'of '+alumns[n].program+'<br><br>churn: '+alumns[n].churn+ "</div>";
     }
     return text;
   }
@@ -106,5 +98,4 @@ function notify(alumns) {
     subject: "new Churn",
     htmlBody: createMessage()
   });
-//  MailApp.sendEmail(emailAddress, subject, message);
 }
