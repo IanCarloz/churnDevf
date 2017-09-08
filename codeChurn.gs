@@ -1,3 +1,5 @@
+var email = "EMAIL ADDRESS TO NOTIFY";
+
 function churn() {
   var jsonStudents = createJson();
   checkStatus(jsonStudents);
@@ -77,7 +79,7 @@ function selectStudents2Notify(all) {
 }
 
 function notify(alumns) {
-  var emailAddress = "iancarloz27g@gmail.com";
+//  var emailAddress = "iancarloz27g@gmail.com";
 
   function createMessage() {
     var text = new Array();
@@ -89,7 +91,7 @@ function notify(alumns) {
   }
 
   MailApp.sendEmail({
-    to: emailAddress,
+    to: email,
     subject: "Daily Churn System",
     htmlBody: createMessage()
   });
